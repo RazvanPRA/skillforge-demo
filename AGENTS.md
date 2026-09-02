@@ -28,9 +28,9 @@ sh scripts/check-agent-instructions.sh
 
 ## External integrations
 
-Whenever an external integration is introduced — including an LLM provider, database, authentication, deployment, or monitoring — create or update `docs/<integration>/README.md` in the same change.
+Whenever an external integration is introduced — including an LLM provider, database, authentication, deployment, or monitoring — create or update `docs/<integration>/README.md` in the same change and add its row to the integration index in `docs/README.md`.
 
-That README must describe the manual work the user must perform: where to create an account, where to create credentials, the environment-variable names, required dashboard configuration, relevant official links, and current cost/pricing guidance. Never place real credentials in these files.
+That README must follow `docs/_template/README.md` and describe the manual work the user must perform: where to create an account, where to create credentials, the environment-variable names, required dashboard configuration, relevant official links, and current cost/pricing guidance. Never place real credentials in these files.
 
 Examples include `docs/openai/README.md`, `docs/anthropic/README.md`, and `docs/database/README.md` when those integrations are actually added.
 
@@ -39,3 +39,13 @@ Examples include `docs/openai/README.md`, `docs/anthropic/README.md`, and `docs/
 - Run focused checks appropriate to the module you change.
 - For agent-instruction changes, run the synchronization and drift-check scripts.
 - Keep `README.md` concise: project overview, run instructions, and links to the canonical documentation.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->
